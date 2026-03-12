@@ -25,3 +25,24 @@ La pagina funciona de tal manera que al entrar en la página, te aparece un busc
 
 Al entrar la ciudad que quieres buscar, aparecerán 2 botones los cuales te redirigirán a los pronósticos tanto de horas como la semanal en dos botones distintos. <br>
 
+## 4.- AWS
+
+Para subir los archivos de configuración de docker a una máquina en la nube, se tiene que acceder a ella a través del siguiente comando:
+```
+ssh -i "C:\Users\Antonio Cuevas\Desktop\labsuser.pem" admin@98.80.29.72
+```
+Accedemos a la máquina a través de ssh. Luego usando el comando ```sudo apt update && sudo apt upgrade -y ´´´ para actualizar los repositorios de linux, y luego actualizar el sistema. <br>
+
+Luego hay que clonar el repositorio de GitHub en la máquina de AWS, para ello hay que hacer lo siguiente:
+```
+sudo apt install git -y
+git clone https://github.com/acuevasf04/aplicaci-n_tiempo_PHP
+```
+Una vez descargado el repositorio de la aplicación web, se tiene que instalar docker en la máquina y ejecutar los siguientes comandos para que funcione esta aplicación:
+
+```
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+```
+
+Una vez instalado docker, hay que entrar en el directorio donde se encuentre el docker file y el docker compose para que se creen los contenedores. Utilizando el comando ```docker compose up``` para crear los contenedores.
