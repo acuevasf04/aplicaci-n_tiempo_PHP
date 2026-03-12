@@ -45,4 +45,8 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 ```
 
-Una vez instalado docker, hay que entrar en el directorio donde se encuentre el docker file y el docker compose para que se creen los contenedores. Utilizando el comando ```docker compose up``` para crear los contenedores.
+Una vez instalado docker, hay que entrar en el directorio donde se encuentre el docker file y el docker compose para que se creen los contenedores. Utilizando el comando ```docker compose up``` para crear los contenedores. <br>
+
+Una vez hecho esto, se le asocia una IP elástica y en la página de NoIP se le da un nombre de dominio el cual tienes que asociar la IP y ponerle el nombre que quieras. <br>
+
+Por último, la página que a la que se tiene que acceder es http://antonciclon.myftp.org/index.php
