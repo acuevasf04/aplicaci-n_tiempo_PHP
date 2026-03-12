@@ -1,0 +1,37 @@
+services:
+  web:
+    build: .
+    container_name: tiempo
+    ports:
+      - "80:80"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_USER: antoniodb
+      DB_PASS: 123456789
+      DB_NAME: tiempo_app
+    restart: on-failure
+
+  db:
+    image: mariadb:10.6
+    container_name: DataBase
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: tiempo_app
+      MYSQL_USER: antoniodb
+      MYSQL_PASSWORD: 123456789
+      MYSQL_INITDB_SKIP_TZINFO: 1
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+    restart: on-failure
+
+volumes:
+  db_data:
