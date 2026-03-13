@@ -12,7 +12,7 @@ services:
       DB_USER: antoniodb
       DB_PASS: 123456789
       DB_NAME: tiempo_app
-    restart: on-failure
+    restart: always
 
   db:
     image: mariadb:10.6
@@ -31,7 +31,7 @@ services:
       timeout: 10s
       retries: 10
       start_period: 30s
-    restart: on-failure
+    restart: always
 
 volumes:
   db_data:
